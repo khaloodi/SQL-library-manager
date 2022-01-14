@@ -51,12 +51,21 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  var err = new Error();
+  err.status = 404;
+  err.message = "Oops!  It looks like the page you're looking for does not exist.";
+  res.status(404).render("page-not-found", { err })
+    next(err)
+});
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+app.use((err, req, res, next) => {
+    if (err.status === 404) {
+        res.status(404).render("page-not-found", { err });
+    } else {
+        err.message = "Sorry! There was an unexpected error on the server."
+        res.status(err.status || 500).render("error", { err })
+    }
+    console.log(err.message);
 });
 
 module.exports = app;
