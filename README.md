@@ -1,8 +1,9 @@
 # SQL-library-manager
+In this project, I've created a web application for listing, adding, updating, and deleting books in a library application.
 
 ## Motivation
 
-Working with databases — storing, retrieving, updating and deleting information. In this project, I've created a web application for listing, adding, updating, and deleting books in a library application.
+Working with databases — storing, retrieving, updating and deleting information. 
 
 **Built With**
 - [JavaScript](https://www.javascript.com/)
