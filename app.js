@@ -1,23 +1,23 @@
-// const Sequelize = require('sequelize');
+const Sequelize = require('sequelize');
 
-// const sequelize = new Sequelize({
-//     dialect: 'sqlite', // version of SQL you're using
-//     storage: 'library.db', // specify the file path or the storage engine for SQLite
-//     logging: true // disable logging
-// });
+const sequelize = new Sequelize({
+    dialect: 'sqlite', // version of SQL you're using
+    storage: 'library.db', // specify the file path or the storage engine for SQLite
+    logging: true // disable logging
+});
 
-// (async()=> {
-//   await sequelize.authenticate();
-//   console.log('Connection to the database successful!');
+(async()=> {
+  await sequelize.authenticate();
+  console.log('Connection to the database successful!');
 
-//   await sequelize.sync({ force: true }); //synch all models at once instead of one at a time
+  await sequelize.sync({ force: true }); //synch all models at once instead of one at a time
 
-//     // NOTE : ^sync() issues a CREATE TABLE IF NOT EXISTS
+    // NOTE : ^sync() issues a CREATE TABLE IF NOT EXISTS
 
-//     // {force: true}, refresh your database tables each time you start your app
+    // {force: true}, refresh your database tables each time you start your app
 
-//     // Calling sync({ force: true }) issues a DROP TABLE IF EXISTS statement, which completely deletes the table, before issuing the CREATE TABLE IF NOT EXISTS statement. In other words, it will drop a table that exists, each time you start your app, and recreate it from the model definition.
-// })();
+    // Calling sync({ force: true }) issues a DROP TABLE IF EXISTS statement, which completely deletes the table, before issuing the CREATE TABLE IF NOT EXISTS statement. In other words, it will drop a table that exists, each time you start your app, and recreate it from the model definition.
+})();
 
 var createError = require('http-errors');
 var express = require('express');
