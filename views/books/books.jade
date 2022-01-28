@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+    h1=title 
+    a.button(href="/books/new", class="btn-new") Create New Book
+    br
+    table
+        tr  
+            br
+            th Title
+            th Author
+            th Genre
+            th Year
+
+        tbody   
+            tr  
+                td 
+                    each book in books
+                        tr
+                            td
+                                a(href="/books/" + book.id)= book.title
+                                td= book.author
+                                td= book.genre
+                                td= book.year
